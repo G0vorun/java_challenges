@@ -6,4 +6,15 @@ public interface IEntry {
      * @param entry row from the input file
      */
     void fillEntryFieldFromStringArray(String[] entry);
+
+    /**
+     * @return searched key
+     */
+    String getSearchedDataKey();
+
+
+    /**
+     * @return searched value
+     */
+    int getSearchedDataValue();
 }

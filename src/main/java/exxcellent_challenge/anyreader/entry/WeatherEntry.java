@@ -45,4 +45,33 @@ public class WeatherEntry implements IEntry {
             throw new AppException("Error by file reading", e);
         }
     }
+
+    @Override
+    public String getSearchedDataKey() {
+        return String.valueOf(day);
+    }
+
+    @Override
+    public int getSearchedDataValue() {
+        return mxT - mnT;
+    }
+
+    @Override
+    public String toString() {
+        return "WeatherEntry [\n" +
+                "Day = " + day + ", \n" +
+                "MxT = " + mxT + ", \n" +
+                "MnT = " + mnT + ", \n" +
+                "AvT = " + avT + ", \n" +
+                "AvDP = " + avDp + ", \n" +
+                "1HrP TPcpn = " + hrPTPcpn + ", \n" +
+                "PDir = " + pDir + ", \n" +
+                "AvSp = " + avSp + ", \n" +
+                "Dir = " + dir + ", \n" +
+                "MxS = " + mxS + ", \n" +
+                "SkyC = " + skyC + ", \n" +
+                "MxR = " + mxR + ", \n" +
+                "Mn = " + mn + ", \n" +
+                "R AvSLP = " + rAvSlp + "]";
+    }
 }

@@ -36,4 +36,27 @@ public class FootballEntry implements IEntry{
             throw new AppException("Error by file reading", e);
         }
     }
+
+    @Override
+    public String getSearchedDataKey() {
+        return team;
+    }
+
+    @Override
+    public int getSearchedDataValue() {
+        return Math.abs((goals - goalsAllowed));
+    }
+
+    @Override
+    public String toString() {
+        return "FootballEntry [\n" +
+                "Team = " + team + ", \n" +
+                "Games = " + games + ", \n" +
+                "Wins = " + wins + ", \n" +
+                "Losses = " + losses + ", \n" +
+                "Draws = " + draws + ", \n" +
+                "Goals = " + goals + ", \n" +
+                "Goals Allowed = " + goalsAllowed + ", \n" +
+                "Points = " + points + "]";
+    }
 }

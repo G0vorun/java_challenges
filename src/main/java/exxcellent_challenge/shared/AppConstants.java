@@ -10,4 +10,7 @@ public class AppConstants {
     public static final String FOOTBALL_FILE_PATH = "csv/football.csv";
     public static final String EMPTY_STRING = "";
     public static final String UNKNOWN_TEAM = EMPTY_STRING;
+
+    public static int MAX_INTEGER = Integer.MAX_VALUE;
+    public static int MIN_INTEGER = Integer.MIN_VALUE;
 }

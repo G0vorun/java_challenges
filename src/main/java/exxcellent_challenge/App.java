@@ -1,5 +1,10 @@
 package exxcellent_challenge;
 
+import exxcellent_challenge.anyreader.worker.AbstractWorker;
+import exxcellent_challenge.anyreader.worker.IWorkerFactory;
+import exxcellent_challenge.anyreader.worker.WorkerFactory;
+import exxcellent_challenge.shared.AppConstants;
+
 import java.sql.Timestamp;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,12 +40,15 @@ public final class App {
         logger.log(Level.INFO, "weatherApp started at " + startTime);
 
         // Your preparation code …
-
-        String dayWithSmallestTempSpread = "Someday";     // Your day analysis function call …
+        IWorkerFactory workerFactory = new WorkerFactory(AppConstants.WEATHER_FILE_PATH, logger);
+        AbstractWorker worker = workerFactory.getWorker();
+        String dayWithSmallestTempSpread = worker.getChallengeDataAsString();
         System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
 
-        String teamWithSmallestGoalSpread = "A good team"; // Your goal analysis function call …
-        System.out.printf("Team with smallest goal spread       : %s%n", teamWithSmallestGoalSpread);
+        workerFactory = new WorkerFactory(AppConstants.FOOTBALL_FILE_PATH, logger);
+        worker = workerFactory.getWorker();
+        String teamWithSmallestGoalSpread = worker.getChallengeDataAsString();
+        System.out.printf("Team with smallest goal spread : %s%n", teamWithSmallestGoalSpread);
 
         Timestamp endTime = new Timestamp(System.currentTimeMillis());
         logger.log(Level.INFO, "weatherApp ended at " + endTime + ". Duration " +
